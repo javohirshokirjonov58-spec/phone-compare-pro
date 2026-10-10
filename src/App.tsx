@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import Navbar from './components/Navbar/Navbar'
 import HomePage from './pages/Home/HomePage'
@@ -12,14 +12,14 @@ function NotFound() {
     <div className="page empty-state">
       <h1 style={{ fontSize: '4rem', opacity: 0.2 }}>404</h1>
       <h3>Sahifa topilmadi</h3>
-      <a href="/" className="btn btn-primary" style={{ marginTop: 16 }}>Bosh sahifaga</a>
+      <Link to="/" className="btn btn-primary" style={{ marginTop: 16 }}>Bosh sahifaga</Link>
     </div>
   )
 }
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -34,7 +34,7 @@ export default function App() {
         <div className="container footer__inner">
           <span>© 2026 PhoneCompare Pro — Eng yaxshi telefon tanlang</span>
           <span className="text-muted" style={{ fontSize: '0.8rem' }}>
-            Supabase · React · Vercel
+            Supabase · React · PhoneCompare
           </span>
         </div>
       </footer>
@@ -56,6 +56,6 @@ export default function App() {
           }
         }}
       />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
