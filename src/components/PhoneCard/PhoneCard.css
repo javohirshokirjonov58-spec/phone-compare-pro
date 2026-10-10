@@ -1,0 +1,203 @@
+.phone-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.phone-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.phone-card:hover {
+  border-color: rgba(124, 111, 247, 0.3);
+  box-shadow: var(--shadow-card), 0 0 20px rgba(124, 111, 247, 0.1);
+  transform: translateY(-4px);
+}
+
+.phone-card:hover::before { opacity: 1; }
+
+.phone-card--selectable {
+  cursor: pointer;
+}
+
+.phone-card--selected {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(124, 111, 247, 0.3), var(--shadow-glow) !important;
+}
+
+.phone-card--selected::before { opacity: 1 !important; }
+
+.phone-card__selected-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+/* Image */
+.phone-card__img-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-card__img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(124, 111, 247, 0.2));
+  transition: transform var(--transition-base);
+}
+
+.phone-card:hover .phone-card__img {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.phone-card__img-placeholder {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-glass);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+}
+
+/* Score badge */
+.score-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.score-badge--success { background: rgba(67,233,123,0.15); color: var(--color-accent-green); border: 1px solid rgba(67,233,123,0.3); }
+.score-badge--primary { background: rgba(124,111,247,0.15); color: var(--color-primary-light); border: 1px solid rgba(124,111,247,0.3); }
+.score-badge--danger { background: rgba(255,71,87,0.15); color: var(--color-accent-red); border: 1px solid rgba(255,71,87,0.3); }
+
+/* Info */
+.phone-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phone-card__brand {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-primary-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.phone-card__model {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.phone-card__year {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.phone-card__price {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent-green);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Spec tags */
+.phone-card__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.spec-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.spec-tag--5g {
+  background: rgba(124, 111, 247, 0.1);
+  border-color: rgba(124, 111, 247, 0.3);
+  color: var(--color-primary-light);
+}
+
+/* Mini scores */
+.phone-card__scores {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mini-score {
+  display: grid;
+  grid-template-columns: 60px 1fr 32px;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-score__label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.mini-score__val {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* Actions */
+.phone-card__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.phone-card__select-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: auto;
+}
